@@ -1,0 +1,28 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <%= link_to 'RAILS', root_path, class:"navbar-brand" %>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li><%= link_to "Projects", projects_path, class:"nav-item nav-link" %></li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+      <% if user_signed_in? %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Account Info
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <span class="dropdown-item"><%= current_user.email %></span>
+          <a class="dropdown-item" href="#">Edit Profile </a>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
+        </div>
+      </li>
+      <% else %>
+        <li><%= link_to "Login", new_user_session_path, class:"nav-item nav-link" %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

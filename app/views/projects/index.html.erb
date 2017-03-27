@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Project</th>
+        <th>Description</th>
+        <th>Owner</th>
+          <% if user_signed_in? %>
+        <th>Edit | Delete</th>
+          <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+      <% @projects.each do |project| %>
+        <tr>
+          <td><%= link_to project.name, project %></td>
+          <td><%= project.description %></td>
+          <td><%= project.user.email %></td>
+          <% if current_user == project.user %>
+          <td>
+            <%= link_to 'Edit', edit_project_path(project) %> | 
+            <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+          <% end %>
+        </tr>
+      <% end %>
+      </tr>
+  </table>
+</div>
+
+
+<br>
+<% if user_signed_in? %>
+  <%= link_to 'New Project', new_project_path %>
+<% end %>
