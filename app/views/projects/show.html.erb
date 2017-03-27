@@ -1,18 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @project.name %>
-</p>
+<h3><%= @project.name %> | <%= @project.description %></h3>
 
 <p>
-  <strong>Description:</strong>
-  <%= @project.description %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @project.user_id %>
+  <strong>Owner:</strong>
+  <%= @project.user.email %>
 </p>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
