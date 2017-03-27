@@ -42,6 +42,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'better_errors', '~> 2.1', '>= 2.1.1'  #Better error page for Rack apps
   gem "binding_of_caller" #needed for better_errors
+  gem 'pry', '~> 0.10.4'
+  gem 'pry-rails', '~> 0.3.6'
 end
 end
 
