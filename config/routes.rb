@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   
-  resources :tasks
-  resources :projects
+  
+  resources :projects do
+   resources :tasks 
+  end
+  
   root to: 'pages#home'
 
   get 'about', to: 'pages#about'

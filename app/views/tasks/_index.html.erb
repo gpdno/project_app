@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Tasks</h1>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Action</th>
+        <th>Owner</th>
+        <th>Priority</th>
+        <th>Status</th>
+        <th>Comment</th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @tasks.each do |task| %>
+        <tr>
+          <td><%= task.id %></td>
+          <td><%= task.action %></td>
+          <td><%= task.user_id %></td>
+          <td>1</td>
+          <td>Ongoing</td>
+          <td><%= task.comment %></td>
+          <td><%= link_to 'Edit', edit_project_task_path(@project, task) %></td>
+          <td><%= link_to 'Destroy', project_task_path(@project, task), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
